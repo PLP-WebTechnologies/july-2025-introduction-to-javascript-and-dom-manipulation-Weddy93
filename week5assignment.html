@@ -1,128 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>My Expanded Project</title>
- <style>
-  /* Basic styling for the project */
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    text-align: center;
-  }
-
-  #content {
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    width: 300px;
-    border-radius: 5px;
-  }
-
-  button {
-    padding: 10px;
-    margin: 5px;
-    cursor: pointer;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    transition: background-color 0.3s;
-  }
-  
-  button:hover {
-    background-color: #218838;
-  }
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  input[type="text"] {
-    padding: 10px;
-    margin: 10px 0;
-    width: calc(100% - 22px);
-    border: 1px solid #ccc;
-    border-radius: 3px;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Project</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Welcome to My Expanded Project</h1>
-  
-  <div id="content">
-    <p id="text">This is a sample project demonstrating JavaScript capabilities.</p>
-    <button id="changeTextButton">Change Text</button>
-    <button id="countButton">Count to 5</button>
+    <h1>Welcome to My Project</h1>
+    
+    <div id="content">
+        <p id="text">This is a sample project demonstrating JavaScript capabilities.</p>
+        <button id="changeTextButton">Change Text</button>
+        <button id="countButton">Count to 5</button>
+    </div>
 
-    <input type="text" id="userInput" placeholder="Type something">
-    <button id="addToListButton">Add to List</button>
-  </div>
+    <ul id="numberList"></ul>
 
-  <ul id="numberList"></ul>
-
-  <script>
-    // script.js
-
-    let textElement = document.getElementById('text');
-    let changeTextButton = document.getElementById('changeTextButton');
-    let countButton = document.getElementById('countButton');
-    let userInput = document.getElementById('userInput');
-    let addToListButton = document.getElementById('addToListButton');
-    let numberList = document.getElementById('numberList');
-
-    // Function to determine the text that will be displayed
-    function getNewText() {
-      let currentText = textElement.innerHTML;
-      return currentText === "This is a sample project demonstrating JavaScript capabilities."
-        ? "The text has been changed!"
-        : "This is a sample project demonstrating JavaScript capabilities.";
-    }
-
-    // Event Listener for Change Text Button
-    changeTextButton.addEventListener('click', function() {
-      textElement.innerHTML = getNewText();
-    });
-
-    // Part 2: Custom functions
-    function countToFive() {
-      let count = 1;
-      while (count <= 5) {
-        console.log(count);
-        count++;
-      }
-    }
-
-    function addNumbersToList() {
-      for (let i = 1; i <= 5; i++) {
-        let listItem = document.createElement('li');
-        listItem.textContent = `Number: ${i}`;
-        numberList.appendChild(listItem);
-      }
-    }
-
-    // Event Listener for Count Button
-    countButton.addEventListener('click', function() {
-      countToFive(); // This will log the numbers 1 through 5 to the console
-      addNumbersToList(); // This will add numbers 1 through 5 to the list in the DOM
-    });
-
-    // Event Listener for Add to List Button
-    addToListButton.addEventListener('click', function() {
-      let itemText = userInput.value.trim();
-      if (itemText) {
-        let listItem = document.createElement('li');
-        listItem.textContent = itemText;
-        numberList.appendChild(listItem);
-        userInput.value = ''; // Clear input field
-      } else {
-        alert("Please enter some text!");
-      }
-    });
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
